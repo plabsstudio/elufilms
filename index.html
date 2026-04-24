@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Elu Films</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Outfit:wght@200;300;400&display=swap" rel="stylesheet" />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --bg: #0e0d0b;
+      --cream: #f0ebe2;
+      --gold: #b89a6a;
+      --muted: #6b6560;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--cream);
+      font-family: 'Outfit', sans-serif;
+      font-weight: 300;
+      overflow-x: hidden;
+    }
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 50;
+      padding: 1.8rem 2.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-weight: 400;
+      font-size: 1.2rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--cream);
+      text-decoration: none;
+    }
+    .nav-right {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+    }
+    .nav-right a {
+      font-size: 0.65rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    .nav-right a:hover { color: var(--cream); }
+    /* HERO */
+    .hero {
+      position: relative;
+      height: 100vh;
+      overflow: hidden;
+    }
+    .hero video {
+      position: absolute;
+      inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      filter: brightness(0.45);
+    }
+    .hero-text {
+      position: absolute;
+      bottom: 3.5rem;
+      left: 2.5rem;
+      z-index: 2;
+    }
+    .hero-text h1 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 400;
+      font-size: clamp(2.6rem, 6vw, 5.2rem);
+      line-height: 1.08;
+      letter-spacing: 0.04em;
+      color: var(--cream);
+      opacity: 0;
+      animation: up 1.2s ease 0.3s forwards;
+    }
+    .hero-text p {
+      margin-top: 0.9rem;
+      font-size: 0.65rem;
+      letter-spacing: 0.38em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-family: 'Outfit', sans-serif;
+      font-weight: 300;
+      opacity: 0;
+      animation: up 1s ease 0.8s forwards;
+    }
+    /* WORKS */
+    .works {
+      padding: 6rem 2.5rem;
+    }
+    .works-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 2.5rem;
+    }
+    .works-header h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: 1.3rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--cream);
+    }
+    .works-header span {
+      font-size: 0.62rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.6rem;
+      max-width: 1000px;
+    }
+    /* REEL CARD */
+    .reel-card {
+      position: relative;
+      aspect-ratio: 16/9;
+      overflow: hidden;
+      background: #141210;
+      display: block;
+    }
+    .reel-video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(0.75);
+      transition: filter 0.5s ease;
+    }
+    .reel-card:hover .reel-video {
+      filter: brightness(0.55);
+    }
+    .reel-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(14,13,11,0.75) 0%, rgba(14,13,11,0.0) 55%);
+    }
+    .reel-label {
+      position: absolute;
+      bottom: 1.2rem;
+      left: 1.2rem;
+      font-size: 0.78rem;
+      font-weight: 300;
+      letter-spacing: 0.14em;
+      color: var(--cream);
+      opacity: 0.7;
+      transform: translateY(4px);
+      transition: opacity 0.4s, transform 0.4s, color 0.4s;
+      z-index: 2;
+    }
+    .reel-card:hover .reel-label {
+      opacity: 1;
+      transform: translateY(0);
+      color: var(--gold);
+    }
+    .reel-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: var(--gold);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.5s ease;
+      z-index: 2;
+    }
+    .reel-card:hover::before { transform: scaleX(1); }
+    /* CONTACT */
+    .contact {
+      padding: 5rem 2.5rem 6rem;
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 4rem;
+      align-items: start;
+    }
+    .contact-left h2 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 400;
+      font-size: 2rem;
+      letter-spacing: 0.02em;
+      line-height: 1.2;
+      color: var(--cream);
+      margin-bottom: 1.5rem;
+    }
+    .contact-left p {
+      font-size: 0.82rem;
+      line-height: 1.8;
+      color: var(--muted);
+      margin-bottom: 2rem;
+    }
+    .links {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    .link-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.68rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      font-weight: 300;
+      color: var(--cream);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    .link-btn:hover { color: var(--gold); }
+    .link-btn::before {
+      content: '';
+      display: block;
+      width: 20px;
+      height: 1px;
+      background: currentColor;
+      flex-shrink: 0;
+    }
+    /* FORM */
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .field label {
+      font-size: 0.58rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-weight: 300;
+    }
+    .field input,
+    .field textarea {
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid #2e2b27;
+      padding: 0.5rem 0;
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 300;
+      color: var(--cream);
+      outline: none;
+      transition: border-color 0.3s;
+      width: 100%;
+    }
+    .field input::placeholder,
+    .field textarea::placeholder { color: #3a3733; }
+    .field input:focus,
+    .field textarea:focus { border-bottom-color: var(--gold); }
+    .field textarea { resize: none; min-height: 80px; }
+    .two { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+    .send {
+      background: none;
+      border: 1px solid #2e2b27;
+      color: var(--cream);
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.62rem;
+      font-weight: 300;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      padding: 0.9rem 2rem;
+      cursor: pointer;
+      align-self: flex-start;
+      transition: border-color 0.3s, color 0.3s;
+    }
+    .send:hover { border-color: var(--gold); color: var(--gold); }
+    /* FOOTER */
+    footer {
+      border-top: 1px solid #1c1b18;
+      padding: 1.5rem 2.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    footer span {
+      font-size: 0.58rem;
+      letter-spacing: 0.18em;
+      color: var(--muted);
+      text-transform: uppercase;
+    }
+    /* ANIMATIONS */
+    @keyframes up {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 0.9s ease, transform 0.9s ease;
+    }
+    .reveal.on { opacity: 1; transform: none; }
+    /* MOBILE */
+    @media (max-width: 700px) {
+      .grid { grid-template-columns: 1fr 1fr; max-width: 100%; }
+      .contact { grid-template-columns: 1fr; gap: 2.5rem; }
+      .two { grid-template-columns: 1fr; }
+      .nav-right a:not(:last-child) { display: none; }
+    }
+  </style>
+</head>
+<body>
+<nav>
+  <a class="logo" href="#">Elu Films</a>
+  <div class="nav-right">
+    <a href="#works">Trabajos</a>
+    <a href="#contact">Contacto</a>
+  </div>
+</nav>
+<!-- HERO -->
+<div class="hero">
+  <video autoplay muted loop playsinline>
+    <source src="hero.mp4" type="video/mp4" />
+  </video>
+  <div class="hero-text">
+    <h1>Videografía<br>de matrimonios</h1>
+    <p>Cotiza y reserva tu fecha</p>
+  </div>
+</div>
+<!-- WORKS -->
+<section class="works" id="works">
+  <div class="works-header reveal">
+    <h2>Extractos</h2>
+  </div>
+  <div class="grid">
+    <div class="reel-card">
+      <video class="reel-video" autoplay muted loop playsinline>
+        <source src="clip1.mp4" type="video/mp4" />
+      </video>
+      <div class="reel-overlay"></div>
+    </div>
+    <div class="reel-card">
+      <video class="reel-video" autoplay muted loop playsinline>
+        <source src="clip2.mp4" type="video/mp4" />
+      </video>
+      <div class="reel-overlay"></div>
+    </div>
+    <div class="reel-card">
+      <video class="reel-video" autoplay muted loop playsinline>
+        <source src="clip3.mp4" type="video/mp4" />
+      </video>
+      <div class="reel-overlay"></div>
+    </div>
+  </div>
+</section>
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="contact-left reveal">
+    <h2>Cotiza y reserva<br>tu fecha</h2>
+    <p>Cuéntanos de su historia y coordinamos todo para que ese día quede para siempre.</p>
+    <div class="links">
+      <a class="link-btn" href="https://wa.me/56993430615" target="_blank" rel="noopener">
+        WhatsApp +56 9 9343 0615
+      </a>
+      <a class="link-btn" href="https://www.instagram.com/elu_g.l?igsh=NTM4NWUxc25sanN3" target="_blank" rel="noopener">
+        Instagram @elu_g.l
+      </a>
+    </div>
+  </div>
+  <form class="reveal" action="https://formsubmit.co/elisagonz26@gmail.com" method="POST">
+    <input type="hidden" name="_subject" value="Nueva consulta — Elu Films" />
+    <input type="hidden" name="_captcha" value="false" />
+    <input type="hidden" name="_template" value="table" />
+    <input type="text" name="_honey" style="display:none" />
+    <div class="two">
+      <div class="field">
+        <label>Nombre</label>
+        <input type="text" name="nombre" placeholder="Tu nombre" required />
+      </div>
+      <div class="field">
+        <label>Correo</label>
+        <input type="email" name="email" placeholder="tu@correo.com" required />
+      </div>
+    </div>
+    <div class="two">
+      <div class="field">
+        <label>Fecha</label>
+        <input type="date" name="fecha" />
+      </div>
+      <div class="field">
+        <label>Ciudad</label>
+        <input type="text" name="ciudad" placeholder="Santiago…" />
+      </div>
+    </div>
+    <div class="field">
+      <label>Mensaje</label>
+      <textarea name="mensaje" placeholder="Cuéntanos de ustedes…"></textarea>
+    </div>
+    <button class="send" type="submit">Enviar</button>
+  </form>
+</section>
+<footer>
+  <span>© 2025 Elu Films</span>
+  <span>Videografía de matrimonios · Chile</span>
+</footer>
+<script>
+  const els = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver(e => {
+    e.forEach(x => { if (x.isIntersecting) { x.target.classList.add('on'); io.unobserve(x.target); }});
+  }, { threshold: 0.1 });
+  els.forEach(el => io.observe(el));
+</script>
+</body>
+</html>
+                                                                     

@@ -33,13 +33,23 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background: linear-gradient(to bottom, rgba(236,228,213,0.92) 0%, transparent 100%);
+      background: rgba(15,15,15,0.0);
+      transition: background 0.4s ease;
+    }
+    nav.scrolled {
+      background: rgba(236,228,213,0.96);
     }
     .logo img {
       height: 86px;
       width: auto;
       display: block;
+      transition: opacity 0.4s ease;
     }
+    .logo .logo-white { opacity: 1; position: absolute; }
+    .logo .logo-black { opacity: 0; }
+    nav.scrolled .logo .logo-white { opacity: 0; }
+    nav.scrolled .logo .logo-black { opacity: 1; }
+    .logo { position: relative; display: block; height: 86px; width: auto; }
     .nav-right {
       display: flex;
       gap: 2rem;
@@ -51,11 +61,12 @@
       font-weight: 400;
       letter-spacing: 0.2em;
       text-transform: uppercase;
-      color: var(--muted);
+      color: #ece4d5;
       text-decoration: none;
-      transition: color 0.3s;
+      transition: color 0.4s;
     }
-    .nav-right a:hover { color: var(--cream); }
+    nav.scrolled .nav-right a { color: #0f0f0f; }
+    .nav-right a:hover { opacity: 0.6; }
 
     /* HERO */
     .hero {
@@ -317,6 +328,7 @@
     /* MOBILE */
     @media (max-width: 640px) {
       nav { padding: 1rem 1.2rem; }
+      .logo { height: 38px; }
       .logo img { height: 38px; }
       .hero-text { bottom: 2rem; left: 1.2rem; right: 1.2rem; }
       .hero-text h1 { font-size: 2.4rem; }
@@ -338,9 +350,10 @@
   </style>
 </head>
 <body>
-<nav>
+<nav id="navbar">
   <a class="logo" href="#">
-    <img src="logo-black.png" alt="Elu Films" />
+    <img class="logo-white" src="logo-white.png" alt="Elu Films" />
+    <img class="logo-black" src="logo-black.png" alt="Elu Films" />
   </a>
   <div class="nav-right">
     <a href="#works">Trabajos</a>
@@ -454,6 +467,5 @@
   <span>© 2025 Elu Films</span>
   <span>Videografía de matrimonios · Chile</span>
 </footer>
-</body>
-</html>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
+<script>
+  const nav = document.getElementById('navbar');

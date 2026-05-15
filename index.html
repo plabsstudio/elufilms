@@ -33,12 +33,10 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background: rgba(15,15,15,0.0);
+      background: transparent;
       transition: background 0.4s ease;
     }
-    nav.scrolled {
-      background: rgba(236,228,213,0.96);
-    }
+    nav.scrolled { background: rgba(236,228,213,0.96); }
     .logo { display: block; }
     .logo img {
       height: 86px;
@@ -111,9 +109,7 @@
       padding: 6rem 2.5rem;
       text-align: center;
     }
-    .works-header {
-      margin-bottom: 2rem;
-    }
+    .works-header { margin-bottom: 2rem; }
     .works-header h2 {
       font-family: 'Courier Prime', 'Courier New', monospace;
       font-weight: 700;
@@ -141,8 +137,7 @@
     .reel-video {
       position: absolute;
       inset: 0;
-      width: 100%;
-      height: 100%;
+      width: 100%; height: 100%;
       object-fit: cover;
       filter: brightness(0.8);
       transition: filter 0.5s ease, transform 0.5s ease;
@@ -158,9 +153,7 @@
     }
 
     /* COLLAGE */
-    .collage {
-      padding: 0 2.5rem 6rem;
-    }
+    .collage { padding: 0 2.5rem 6rem; }
     .collage-header {
       margin-bottom: 2rem;
       text-align: center;
@@ -193,8 +186,8 @@
       object-fit: cover;
       display: block;
       pointer-events: none;
-      user-select: none;
       -webkit-user-drag: none;
+      user-select: none;
       filter: brightness(0.92);
       transition: filter 0.4s;
     }
@@ -349,7 +342,7 @@
         grid-template-columns: 1fr 1fr;
       }
       .collage-grid .wide,
-      .collage-grid .sq { aspect-ratio: 16/9; flex: unset; }
+      .collage-grid .sq { flex: unset; aspect-ratio: 16/9; }
       .contact { grid-template-columns: 1fr; gap: 2rem; padding: 2.5rem 1.2rem 3rem; }
       .contact-left h2 { font-size: 1.7rem; }
       .two { grid-template-columns: 1fr; }
@@ -468,4 +461,6 @@
       <label>Mensaje</label>
       <textarea name="mensaje" placeholder="Cuéntanos de ustedes…"></textarea>
     </div>
-    <button class="send" type="s
+    <button class="send" type="submit">Enviar</button>
+  </form>
+</section>

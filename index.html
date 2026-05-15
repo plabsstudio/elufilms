@@ -12,8 +12,8 @@
     :root {
       --bg: #ece4d5;
       --cream: #0f0f0f;
-      --gold: #8a6a3a;
-      --muted: #888;
+      --gold: #0f0f0f;
+      --muted: #0f0f0f;
     }
     html { scroll-behavior: smooth; }
     body {
@@ -82,7 +82,7 @@
       font-size: clamp(2.8rem, 6vw, 5.5rem);
       line-height: 1.05;
       letter-spacing: -0.01em;
-      color: var(--cream);
+      color: #ece4d5;
       opacity: 0;
       animation: up 1.2s ease 0.3s forwards;
     }
@@ -93,7 +93,7 @@
       font-weight: 400;
       letter-spacing: 0.35em;
       text-transform: uppercase;
-      color: var(--gold);
+      color: #ece4d5;
       opacity: 0;
       animation: up 1s ease 0.8s forwards;
     }
@@ -101,6 +101,7 @@
     /* WORKS */
     .works {
       padding: 6rem 2.5rem;
+      text-align: center;
     }
     .works-header {
       margin-bottom: 2rem;
@@ -118,6 +119,7 @@
       grid-template-columns: repeat(3, 1fr);
       gap: 0.5rem;
       max-width: 1000px;
+      margin: 0 auto;
     }
 
     /* REEL CARD */
@@ -145,6 +147,58 @@
       position: absolute;
       inset: 0;
       background: linear-gradient(to top, rgba(15,15,15,0.4) 0%, transparent 60%);
+    }
+
+    /* COLLAGE */
+    .collage {
+      padding: 0 2.5rem 6rem;
+    }
+    .collage-header {
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+    .collage-header h2 {
+      font-family: 'Courier Prime', 'Courier New', monospace;
+      font-weight: 700;
+      font-size: 0.75rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    .collage-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr 1fr 1.4fr;
+      grid-template-rows: 220px 180px;
+      gap: 4px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .collage-grid img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: filter 0.4s ease;
+      filter: brightness(0.92);
+    }
+    .collage-grid img:hover { filter: brightness(1); }
+    .collage-grid .c1 { grid-column: 1; grid-row: 1 / 3; }
+    .collage-grid .c2 { grid-column: 2; grid-row: 1; }
+    .collage-grid .c3 { grid-column: 3; grid-row: 1; }
+    .collage-grid .c4 { grid-column: 2 / 4; grid-row: 2; }
+    .collage-grid .c5 { grid-column: 4 / 6; grid-row: 1 / 3; }
+
+    @media (max-width: 640px) {
+      .collage { padding: 0 1.2rem 3rem; }
+      .collage-grid {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: repeat(3, 150px);
+      }
+      .collage-grid .c1 { grid-column: 1; grid-row: 1; }
+      .collage-grid .c2 { grid-column: 2; grid-row: 1; }
+      .collage-grid .c3 { grid-column: 1; grid-row: 2; }
+      .collage-grid .c4 { grid-column: 2; grid-row: 2; }
+      .collage-grid .c5 { grid-column: 1 / 3; grid-row: 3; }
     }
 
     /* CONTACT */
@@ -347,49 +401,7 @@
   </div>
 </section>
 
-<!-- CONTACT -->
-<section class="contact" id="contact">
-  <div class="contact-left">
-    <h2>Cotiza y reserva<br>tu fecha</h2>
-    <p>Cuéntanos de su historia y coordinamos todo para que ese día quede para siempre.</p>
-    <div class="links">
-      <a class="link-btn" href="https://wa.me/56993430615" target="_blank" rel="noopener">
-        WhatsApp +56 9 9343 0615
-      </a>
-      <a class="link-btn" href="https://www.instagram.com/elu_g.l?igsh=NTM4NWUxc25sanN3" target="_blank" rel="noopener">
-        Instagram @elu_g.l
-      </a>
-    </div>
-  </div>
-  <form action="https://formsubmit.co/elisagonz26@gmail.com" method="POST">
-    <input type="hidden" name="_subject" value="Nueva consulta — Elu Films" />
-    <input type="hidden" name="_captcha" value="false" />
-    <input type="hidden" name="_template" value="table" />
-    <input type="text" name="_honey" style="display:none" />
-    <div class="two">
-      <div class="field">
-        <label>Nombre</label>
-        <input type="text" name="nombre" placeholder="Tu nombre" required />
-      </div>
-      <div class="field">
-        <label>Correo</label>
-        <input type="email" name="email" placeholder="tu@correo.com" required />
-      </div>
-    </div>
-    <div class="two">
-      <div class="field">
-        <label>Fecha</label>
-        <input type="date" name="fecha" />
-      </div>
-      <div class="field">
-        <label>Ciudad</label>
-        <input type="text" name="ciudad" placeholder="Santiago…" />
-      </div>
-    </div>
-    <div class="field">
-      <label>Mensaje</label>
-      <textarea name="mensaje" placeholder="Cuéntanos de ustedes…"></textarea>
-    </div>
-    <button class="send" type="submit">Enviar</button>
-  </form>
-</sect
+<!-- COLLAGE -->
+<section class="collage">
+  <div class="collage-header">
+    <

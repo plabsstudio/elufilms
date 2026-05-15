@@ -10,10 +10,10 @@
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     :root {
-      --bg: #0a0a0a;
-      --cream: #f5f2ee;
-      --gold: #b89a6a;
-      --muted: #666;
+      --bg: #ece4d5;
+      --cream: #0f0f0f;
+      --gold: #8a6a3a;
+      --muted: #888;
     }
     html { scroll-behavior: smooth; }
     body {
@@ -33,10 +33,10 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background: linear-gradient(to bottom, rgba(10,10,10,0.85) 0%, transparent 100%);
+      background: linear-gradient(to bottom, rgba(236,228,213,0.92) 0%, transparent 100%);
     }
     .logo img {
-      height: 48px;
+      height: 86px;
       width: auto;
       display: block;
     }
@@ -125,7 +125,7 @@
       position: relative;
       aspect-ratio: 16/9;
       overflow: hidden;
-      background: #111;
+      background: #ccc;
       display: block;
     }
     .reel-video {
@@ -144,7 +144,7 @@
     .reel-overlay {
       position: absolute;
       inset: 0;
-      background: linear-gradient(to top, rgba(10,10,10,0.6) 0%, transparent 60%);
+      background: linear-gradient(to top, rgba(15,15,15,0.4) 0%, transparent 60%);
     }
 
     /* CONTACT */
@@ -221,7 +221,7 @@
     .field textarea {
       background: transparent;
       border: none;
-      border-bottom: 1px solid #222;
+      border-bottom: 1px solid #bbb;
       padding: 0.5rem 0;
       font-family: 'Courier Prime', 'Courier New', monospace;
       font-size: 0.85rem;
@@ -232,14 +232,14 @@
       width: 100%;
     }
     .field input::placeholder,
-    .field textarea::placeholder { color: #333; }
+    .field textarea::placeholder { color: #aaa; }
     .field input:focus,
     .field textarea:focus { border-bottom-color: var(--gold); }
     .field textarea { resize: none; min-height: 80px; }
     .two { display: grid; grid-template-columns: 1fr 1fr; gap: 1.4rem; }
     .send {
       background: none;
-      border: 1px solid #333;
+      border: 1px solid #aaa;
       color: var(--cream);
       font-family: 'Courier Prime', 'Courier New', monospace;
       font-size: 0.6rem;
@@ -254,12 +254,12 @@
     .send:hover {
       border-color: var(--cream);
       background: var(--cream);
-      color: var(--bg);
+      color: #ece4d5;
     }
 
     /* FOOTER */
     footer {
-      border-top: 1px solid #1a1a1a;
+      border-top: 1px solid #ccc;
       padding: 1.5rem 2.5rem;
       display: flex;
       justify-content: space-between;
@@ -301,7 +301,7 @@
 <body>
 <nav>
   <a class="logo" href="#">
-    <img src="logo-white.png" alt="Elu Films" />
+    <img src="logo-black.png" alt="Elu Films" />
   </a>
   <div class="nav-right">
     <a href="#works">Trabajos</a>
@@ -392,4 +392,4 @@
     </div>
     <button class="send" type="submit">Enviar</button>
   </form>
-</se
+</sect

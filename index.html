@@ -464,3 +464,22 @@
     <button class="send" type="submit">Enviar</button>
   </form>
 </section>
+<footer>
+  <span>© 2025 Elu Films</span>
+  <span>Videografía de matrimonios · Chile</span>
+</footer>
+
+<script>
+  var nav = document.getElementById('navbar');
+  var hero = document.querySelector('.hero');
+  function onScroll() {
+    if (window.scrollY > hero.offsetHeight * 0.8) {
+      nav.classList.add('scrolled');
+    } else {
+      nav.classList.remove('scrolled');
+    }
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+</script>
+</body>
+</html>

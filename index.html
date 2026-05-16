@@ -353,6 +353,14 @@
       padding: 2.4rem 2rem;
       border-right: 1px solid #bbb;
       border-bottom: 1px solid #bbb;
+      cursor: pointer;
+      transition: background 0.25s ease;
+    }
+    .package-item:hover { background: rgba(15,15,15,0.05); }
+    .package-item.selected { background: rgba(15,15,15,0.08); }
+    .package-item.selected .package-name::after {
+      content: ' ✓';
+      font-size: 0.65rem;
     }
     .package-item:last-child {
       border-right: none;
@@ -526,17 +534,17 @@
     <h2>Paquetes</h2>
   </div>
   <div class="packages-grid">
-    <div class="package-item">
+    <div class="package-item" data-pack="Trailer" onclick="selectPack(this)">
       <div class="package-name">Trailer</div>
       <div class="package-desc">Lo ideal para compartir en redes.<br>1 canción a elección.</div>
       <div class="package-duration">2 – 3 min</div>
     </div>
-    <div class="package-item">
+    <div class="package-item" data-pack="Cortometraje" onclick="selectPack(this)">
       <div class="package-name">Cortometraje</div>
       <div class="package-desc">Un resumen profundo y rítmico.<br>2 canciones a elección.</div>
       <div class="package-duration">4 – 5 min</div>
     </div>
-    <div class="package-item">
+    <div class="package-item" data-pack="Película" onclick="selectPack(this)">
       <div class="package-name">Película</div>
       <div class="package-desc">La narrativa completa de su gran día.<br>3 canciones a elección.</div>
       <div class="package-duration">7 – 8 min</div>
@@ -630,6 +638,28 @@
     }
   }
   window.addEventListener('scroll', onScroll, { passive: true });
+</script>
+
+<script>
+function selectPack(el) {
+  // Remove selected from siblings
+  document.querySelectorAll('.package-item').forEach(function(item) {
+    item.classList.remove('selected');
+  });
+  el.classList.add('selected');
+
+  var pack = el.getAttribute('data-pack');
+  var textarea = document.querySelector('textarea[name="mensaje"]');
+  if (textarea) {
+    textarea.value = '¡Hola! Me gustaría cotizar el pack ' + pack + ' para mi matrimonio.';
+  }
+
+  // Scroll to contact form
+  var contact = document.getElementById('contact');
+  if (contact) {
+    contact.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+}
 </script>
 </body>
 </html>

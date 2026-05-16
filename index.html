@@ -122,8 +122,6 @@
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 0.5rem;
-      max-width: 1000px;
-      margin: 0 auto;
     }
 
     /* REEL CARD */
@@ -154,21 +152,9 @@
 
     /* COLLAGE */
     .collage { padding: 0 2.5rem 6rem; }
-    .collage-header {
-      margin-bottom: 2rem;
-      text-align: center;
-    }
-    .collage-header h2 {
-      font-family: 'Courier Prime', 'Courier New', monospace;
-      font-weight: 700;
-      font-size: 0.75rem;
-      letter-spacing: 0.3em;
-      text-transform: uppercase;
-      color: var(--gold);
-    }
     .collage-grid {
       display: flex;
-      gap: 4px;
+      gap: 0;
     }
     .collage-grid .wide {
       flex: 16;
@@ -403,9 +389,6 @@
 
 <!-- COLLAGE -->
 <section class="collage">
-  <div class="collage-header">
-    <h2>Momentos</h2>
-  </div>
   <div class="collage-grid">
     <div class="wide"><img src="3J0.jpg"      alt="" draggable="false" /></div>
     <div class="sq"  ><img src="M30.jpg"      alt="" draggable="false" /></div>

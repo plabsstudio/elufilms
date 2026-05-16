@@ -24,6 +24,24 @@
       overflow-x: hidden;
     }
 
+    .logo-group {
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+    }
+    .nav-slogan {
+      font-family: 'Courier Prime', 'Courier New', monospace;
+      font-size: 0.5rem;
+      font-weight: 400;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #ece4d5;
+      line-height: 1.7;
+      transition: color 0.4s ease;
+    }
+    nav.scrolled .nav-slogan { color: #0f0f0f; }
+    @media (max-width: 640px) { .nav-slogan { display: none; } }
+
     /* NAV */
     nav {
       position: fixed;
@@ -401,6 +419,30 @@
       }
     }
 
+    .footer-left {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .footer-logo {
+      height: 36px;
+      width: auto;
+      display: block;
+    }
+    .footer-slogan {
+      font-family: 'Courier Prime', 'Courier New', monospace;
+      font-size: 0.5rem;
+      font-weight: 400;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .footer-right {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 0.2rem;
+    }
     /* ANIMATIONS */
     @keyframes up {
       from { opacity: 0; transform: translateY(20px); }
@@ -434,9 +476,12 @@
 </head>
 <body>
 <nav id="navbar">
-  <a class="logo" href="#">
-    <img src="logo-white.png" alt="Elu Films" />
-  </a>
+  <div class="logo-group">
+    <a class="logo" href="#">
+      <img src="logo-white.png" alt="Elu Films" />
+    </a>
+    <span class="nav-slogan">Capturamos la esencia<br>de tu historia</span>
+  </div>
   <div class="nav-right">
     <a href="#works">Trabajos</a>
     <a href="#contact">Contacto</a>
@@ -571,8 +616,14 @@
   </form>
 </section>
 <footer>
-  <span>© 2025 Elu Films</span>
-  <span>Videografía de matrimonios · Chile</span>
+  <div class="footer-left">
+    <img src="logo-black.png" alt="Elu Films" class="footer-logo" />
+    <span class="footer-slogan">Capturamos la esencia de tu historia</span>
+  </div>
+  <div class="footer-right">
+    <span>© 2025 Elu Films</span>
+    <span>Videografía de matrimonios · Chile</span>
+  </div>
 </footer>
 
 <script>

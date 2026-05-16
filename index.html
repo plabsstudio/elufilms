@@ -307,6 +307,77 @@
       text-transform: uppercase;
     }
 
+
+    /* PACKAGES */
+    .packages {
+      padding: 5rem 2.5rem 4rem;
+    }
+    .packages-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    .packages-header h2 {
+      font-family: 'Courier Prime', 'Courier New', monospace;
+      font-weight: 700;
+      font-size: 0.75rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    .packages-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      max-width: 900px;
+      margin: 0 auto;
+      border-top: 1px solid #bbb;
+    }
+    .package-item {
+      padding: 2.4rem 2rem;
+      border-right: 1px solid #bbb;
+      border-bottom: 1px solid #bbb;
+    }
+    .package-item:last-child {
+      border-right: none;
+    }
+    .package-name {
+      font-family: 'Courier Prime', 'Courier New', monospace;
+      font-weight: 700;
+      font-size: 0.7rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--cream);
+      margin-bottom: 1.2rem;
+    }
+    .package-desc {
+      font-family: 'Courier Prime', 'Courier New', monospace;
+      font-size: 0.8rem;
+      font-weight: 400;
+      line-height: 1.85;
+      color: var(--muted);
+    }
+    .package-duration {
+      margin-top: 1.4rem;
+      font-family: 'Courier Prime', 'Courier New', monospace;
+      font-size: 0.58rem;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: #999;
+    }
+    @media (max-width: 640px) {
+      .packages { padding: 3rem 1.2rem 2.5rem; }
+      .packages-grid {
+        grid-template-columns: 1fr;
+      }
+      .package-item {
+        border-right: none;
+      }
+      .package-item:last-child {
+        border-bottom: none;
+      }
+    }
+
     /* ANIMATIONS */
     @keyframes up {
       from { opacity: 0; transform: translateY(20px); }
@@ -383,6 +454,31 @@
         <source src="clip3.mp4" type="video/mp4" />
       </video>
       <div class="reel-overlay"></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- PACKAGES -->
+<section class="packages">
+  <div class="packages-header">
+    <h2>Paquetes</h2>
+  </div>
+  <div class="packages-grid">
+    <div class="package-item">
+      <div class="package-name">Trailer</div>
+      <div class="package-desc">Lo ideal para compartir en redes.<br>1 canción a elección.</div>
+      <div class="package-duration">2 – 3 min</div>
+    </div>
+    <div class="package-item">
+      <div class="package-name">Cortometraje</div>
+      <div class="package-desc">Un resumen profundo y rítmico.<br>2 canciones a elección.</div>
+      <div class="package-duration">4 – 5 min</div>
+    </div>
+    <div class="package-item">
+      <div class="package-name">Película</div>
+      <div class="package-desc">La narrativa completa de su gran día.<br>3 canciones a elección.</div>
+      <div class="package-duration">7 – 8 min</div>
     </div>
   </div>
 </section>

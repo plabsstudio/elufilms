@@ -365,6 +365,29 @@
       text-transform: uppercase;
       color: #999;
     }
+    .package-addon {
+      grid-column: 1 / -1;
+      padding: 2rem 2rem;
+      border-bottom: 1px solid #bbb;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 2.5rem;
+      align-items: start;
+    }
+    .package-addon .package-name {
+      margin-bottom: 0;
+      white-space: nowrap;
+      padding-top: 0.15rem;
+    }
+    .package-addon .package-desc {
+      max-width: 520px;
+    }
+    @media (max-width: 640px) {
+      .package-addon {
+        grid-template-columns: 1fr;
+        gap: 0.8rem;
+      }
+    }
     @media (max-width: 640px) {
       .packages { padding: 3rem 1.2rem 2.5rem; }
       .packages-grid {
@@ -479,6 +502,10 @@
       <div class="package-name">Película</div>
       <div class="package-desc">La narrativa completa de su gran día.<br>3 canciones a elección.</div>
       <div class="package-duration">7 – 8 min</div>
+    </div>
+    <div class="package-addon">
+      <div class="package-name">Pack Memorias</div>
+      <div class="package-desc">Todo el material original sin editar entregado en un pendrive exclusivo. Ideal para conservar cada momento que no llegó al corte final. Disponible como complemento adicional a cualquier paquete.</div>
     </div>
   </div>
 </section>
